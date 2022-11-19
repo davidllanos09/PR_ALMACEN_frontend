@@ -38,9 +38,8 @@ export class AllWarehousesComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.service.delete(w.idWarehouse).subscribe(() => {
-          Swal.fire('Eliminado:', `${w.name} eliminado con éxito`, 'success'); 
+          Swal.fire('Eliminado:', `${w.name} eliminado con éxito`, 'success');
         });
-        
       }
     });
   }
