@@ -1,0 +1,33 @@
+<div class="container">
+    <mat-card style="margin-top: 10%;">
+        <form>
+            <mat-grid-list cols="5" rowHeight="70px" >
+                <mat-grid-tile [colspan]="3" [rowspan]="6" >
+                    <img src="../../../assets/png/PymesAzul.png" width="50%" >
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                   <p>Iniciar Sesión</p>
+                </mat-grid-tile>
+            
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <input type="text" class="form-control" id="email" placeholder="Correo Electronico">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <input type="text" class="form-control " id="password" placeholder="Password" [type]="hide ? 'password' : 'text'">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <a href="#" class="width">Olvidaste tu contraseña</a>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <button mat-raised-button style="background-color: #00AEE1; color: white;" class="width">Iniciar Sesión</button>   
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <label>No tienes una cuenta?</label>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <a href="#" class="width" >Registrate</a>
+                </mat-grid-tile>
+            </mat-grid-list>          
+        </form>       
+    </mat-card>
+</div>
