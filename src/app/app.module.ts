@@ -62,7 +62,8 @@ import { NewSupplierOrderComponent } from './views/shopping/new-supplier-order/n
 import { HttpClientModule} from '@angular/common/http';
 import { AsignarSeccionesComponent } from './views/warehouses/all-warehouses/asignar-secciones/asignar-secciones.component';
 import { FormWarehouseComponent } from './views/warehouses/all-warehouses/form-warehouse.component';
-
+import { SectionsComponent } from './views/warehouses/Sections/sections.component';
+import { FormSectionComponent } from './views/warehouses/Sections/form-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +96,9 @@ import { FormWarehouseComponent } from './views/warehouses/all-warehouses/form-w
     BudgetSheetComponent,
     SideMenuShoppingComponent,
     AsignarSeccionesComponent,
-    FormWarehouseComponent
+    FormWarehouseComponent,
+    SectionsComponent,
+    FormSectionComponent
   
 
   ],
