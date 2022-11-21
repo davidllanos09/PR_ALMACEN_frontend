@@ -7,6 +7,7 @@ import { AllWarehousesComponent } from './views/warehouses/all-warehouses/all-wa
 import { AsignarSeccionesComponent } from './views/warehouses/all-warehouses/asignar-secciones/asignar-secciones.component';
 import { FormWarehouseComponent } from './views/warehouses/all-warehouses/form-warehouse.component';
 import { RegisterProductComponent } from './views/warehouses/register-product/register-product.component';
+import { ListProductsComponent } from './views/warehouses/list-products/list-products.component';
 
 const routes: Routes = [
   {path: 'register_business', component: RegisterBusinessComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'form', component:FormWarehouseComponent},
   {path:'form/:id', component:FormWarehouseComponent},
   {path:'asignar-secciones/:id', component: AsignarSeccionesComponent},
+  {path: 'listar_productos', component: ListProductsComponent },
   {path:'producto', component:RegisterProductComponent}
 ];
 

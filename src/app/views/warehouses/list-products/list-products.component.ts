@@ -1,14 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/app/load-scripts.service';
-
-
+import {Producto} from 'src/app/models/producto';
+import { Observable } from 'rxjs';
+import { ProductService } from 'src/app/services/producto.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-  cards = [
+  productos: Producto[];
+  producto: Producto = new Producto();
+
+  error:any;
+  constructor(private _LoadScripts:LoadScriptsService, 
+    private service: ProductService,
+    private router: Router,
+    private route: ActivatedRoute) { 
+_LoadScripts.Load(["register_section"])
+}
+
+  /*cards = [
     {
       title: 'Doritos',
       units: '15',
@@ -29,7 +44,7 @@ export class ListProductsComponent implements OnInit {
       units: '25',
       description: 'Description'
     },
-  ];
+  ];*/
   
   sections = [
     {
@@ -57,12 +72,8 @@ export class ListProductsComponent implements OnInit {
       description: 'Description'
     },
   ];
-
-  constructor(private _LoadScripts:LoadScriptsService) { 
-    _LoadScripts.Load(["register_section"]);
-  }
-
   ngOnInit(): void {
+    this.service.selectProducto().subscribe(productos => this.productos = productos);
   }
 
 }

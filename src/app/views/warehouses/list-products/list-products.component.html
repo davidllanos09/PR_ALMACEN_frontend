@@ -3,10 +3,10 @@
     <div class="col-md-6"  style="margin-bottom: 40px;">
       <div>
         <h1 class="hd-s prd">Lista de Productos</h1>
-        <div class="" *ngFor="let card of cards">
+        <div class="" *ngFor="let producto of productos">
           <mat-card class="card-wr">
             <div class="header-card" style="display: inline-flex; justify-content: space-between;">
-              <p>{{card.title}}</p>
+              <p>{{producto.name}}</p>
               <div class="buttons-edit-delete">
                 <button class="btn-h" mat-mini-fab 
                   aria-label="Example icon button with a plus one icon">
@@ -35,9 +35,9 @@
             </div>
             <mat-card-content>
               <p>
-                {{card.description}}
+                {{producto.description}}
               </p>
-              <p style="text-align: right; font-size: large; font-weight: bolder;" class="td-units">x{{card.units}}</p>
+              <p style="text-align: right; font-size: large; font-weight: bolder;" class="td-units">x{{producto.quantity}}</p>
             </mat-card-content>
           </mat-card>
         </div>
