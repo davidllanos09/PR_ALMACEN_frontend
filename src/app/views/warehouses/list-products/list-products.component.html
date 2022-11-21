@@ -8,7 +8,7 @@
             <div class="header-card" style="display: inline-flex; justify-content: space-between;">
               <p>{{producto.name}}</p>
               <div class="buttons-edit-delete">
-                <button class="btn-h" mat-mini-fab 
+                <button class="btn-h" mat-mini-fab  [routerLink]="['/producto', producto.productID]"
                   aria-label="Example icon button with a plus one icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -18,7 +18,7 @@
                     <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
                   </svg>
                 </button>
-                <button class="btn-h" mat-mini-fab 
+                <button class="btn-h" mat-mini-fab  (click)="eliminar(producto)"
                   aria-label="Example icon button with a plus one icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="content-btn">
-        <button class="btn btn-submit">Añadir Producto</button>
+        <button class="btn btn-submit" routerLink="/producto" >Añadir Producto</button>
       </div>
     </div>
     <div class="col-md-6">

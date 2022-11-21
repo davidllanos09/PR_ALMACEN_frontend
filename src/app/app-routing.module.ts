@@ -18,7 +18,8 @@ const routes: Routes = [
   {path:'form/:id', component:FormWarehouseComponent},
   {path:'asignar-secciones/:id', component: AsignarSeccionesComponent},
   {path: 'listar_productos', component: ListProductsComponent },
-  {path:'producto', component:RegisterProductComponent}
+  {path:'producto', component:RegisterProductComponent},
+  {path:'producto/:id', component:RegisterProductComponent}
 ];
 
 @NgModule({

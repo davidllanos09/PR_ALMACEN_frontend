@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/services/producto.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
@@ -22,7 +23,25 @@ export class ListProductsComponent implements OnInit {
     private route: ActivatedRoute) { 
 _LoadScripts.Load(["register_section"])
 }
-
+public eliminar(w: Producto): void{
+  Swal.fire({
+    title: 'Cuidado:',
+    text: `¿Seguro que desea eliminar a ${w.name} ?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#0A457F',
+    cancelButtonColor: '#86b9eb',
+    confirmButtonText: 'Si, eliminar!'
+  }).then((result) => {
+    if (result.value) {
+      this.service.delete(w.productID).subscribe(() => {
+        Swal.fire('Eliminado:', `${w.name} eliminado con éxito`, 'success');
+        this.router.navigate(['/listar_productos']);
+        window.location.reload();
+      });
+    }
+  });
+}
   /*cards = [
     {
       title: 'Doritos',
@@ -73,7 +92,7 @@ _LoadScripts.Load(["register_section"])
     },
   ];
   ngOnInit(): void {
-    this.service.selectProducto().subscribe(productos => this.productos = productos);
+    this.service.list().subscribe(productos => this.productos = productos);
   }
 
 }
