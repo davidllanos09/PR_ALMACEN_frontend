@@ -10,6 +10,7 @@ import { RegisterProductComponent } from './views/warehouses/register-product/re
 import { SectionsComponent } from './views/warehouses/Sections/sections.component';
 import { FormSectionComponent } from './views/warehouses/Sections/form-section.component';
 import { AssignRacksComponent } from './views/warehouses/Sections/asign-racks/assign-racks.component';
+import { ListProductsComponent } from './views/warehouses/list-products/list-products.component';
 
 const routes: Routes = [
   {path: 'register_business', component: RegisterBusinessComponent},
@@ -23,8 +24,11 @@ const routes: Routes = [
   {path:'seccion', component:SectionsComponent},
   {path:'formSection', component:FormSectionComponent},
   {path:'formSection/:id', component:FormSectionComponent},
-  {path:'assign-racks/:id', component: AssignRacksComponent}
+  {path:'assign-racks/:id', component: AssignRacksComponent},
 
+  {path: 'listar_productos', component: ListProductsComponent },
+  {path:'producto', component:RegisterProductComponent},
+  {path:'producto/:id', component:RegisterProductComponent}
 ];
 
 @NgModule({
