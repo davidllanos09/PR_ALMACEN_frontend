@@ -26,8 +26,12 @@
             </div>
           </div>
           <mat-card-content class="content-card">
+            <p> <b>Cantidad de Estantes: {{section.racks.length}}</b> </p>            
             <p> <b>Nombre y descripción: </b>{{section.description}} </p>
           </mat-card-content>
+          <div class="content-btn">
+            <button class="btn btn-submit" [routerLink]="['/assign-racks', section.idSection]" >Asignar Estantes</button>
+          </div>
         </mat-card>
       </div>
     </div>

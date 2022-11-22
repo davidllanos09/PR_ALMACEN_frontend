@@ -64,6 +64,8 @@ import { AsignarSeccionesComponent } from './views/warehouses/all-warehouses/asi
 import { FormWarehouseComponent } from './views/warehouses/all-warehouses/form-warehouse.component';
 import { SectionsComponent } from './views/warehouses/Sections/sections.component';
 import { FormSectionComponent } from './views/warehouses/Sections/form-section.component';
+import { AssignRacksComponent } from './views/warehouses/Sections/asign-racks/assign-racks.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +100,8 @@ import { FormSectionComponent } from './views/warehouses/Sections/form-section.c
     AsignarSeccionesComponent,
     FormWarehouseComponent,
     SectionsComponent,
-    FormSectionComponent
+    FormSectionComponent,
+    AssignRacksComponent
   
 
   ],

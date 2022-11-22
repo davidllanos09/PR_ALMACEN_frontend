@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Section } from '../models/section';
 import { CommonService } from './common.service';
 import { BASE_ENDPOINT } from '../config/app';
+import { Rack } from '../models/rack';
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +27,15 @@ export class SectionService extends CommonService<Section> {
   }
 
   /*ASIGNA LAS SECCIONES A ALMACEN */
-  addSection(section: Section): Observable<Section>{
-    return this.http.put<Section>(`${this.baseEndpoint}/${section.idSection}/asignar-section`,
-     
+  addRack(section: Section, racks: Rack[]): Observable<Section>{
+    return this.http.put<Section>(`${this.baseEndpoint}/${section.idSection}/asignar-rack`,
+    racks,     
      {headers: this.cabeceras});
   }
 
   /*BORRA SECCIONES DEL ALMACEN */
-  deleteSection(section: Section): Observable<Section> {
-    return this.http.put<Section>(`${this.baseEndpoint}/${section.idSection}/eliminar-section`,
+  deleteRack(section: Section, rack: Rack): Observable<Section> {
+    return this.http.put<Section>(`${this.baseEndpoint}/${section.idSection}/eliminar-rack`,
     section,
     {headers: this.cabeceras});
   }
