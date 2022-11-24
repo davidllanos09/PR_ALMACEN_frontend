@@ -36,7 +36,7 @@ export class SectionService extends CommonService<Section> {
   /*BORRA SECCIONES DEL ALMACEN */
   deleteRack(section: Section, rack: Rack): Observable<Section> {
     return this.http.put<Section>(`${this.baseEndpoint}/${section.idSection}/eliminar-rack`,
-    section,
+    rack,
     {headers: this.cabeceras});
   }
 }

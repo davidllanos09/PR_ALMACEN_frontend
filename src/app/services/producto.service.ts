@@ -18,4 +18,8 @@ export class ProductService extends CommonService<Producto> {
   public editProducto(producto: Producto): Observable<Producto>{
     return this.http.put<Producto>(`${this.baseEndpoint}/${producto.productID}`, producto , {headers: this.cabeceras});
   }
+
+  public findByNameOrDescription(term: string): Observable<Producto[]>{
+    return this.http.get<Producto[]>(`${this.baseEndpoint}/filtrar/${term}`);
+  }
 }

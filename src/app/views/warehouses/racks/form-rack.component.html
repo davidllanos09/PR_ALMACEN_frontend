@@ -7,25 +7,24 @@
                 <h1><b>{{titulo}}</b></h1>
             </div>
         </div>
-        <div class="card-body ">
-            <form>
-                <div class="form-group col-md-8">
-                    <label for="inputEmail3" class="col-sm-4 label-col col-form-label">Nombre:</label>
-                    <input type="text" class="form-control" placeholder="Nombre y descripcion" name="description"
-                        id="description" [(ngModel)]="section.description">
+        <div class="card-body">
+            <form >
+                <div class="form-group col-md-8 ">
+                    <label for="nombre" class="col-sm-4 label-col col-form-label" >Nombre de Estante:</label>
+                    <input type="text" class="form-control input-register" placeholder="Nombre del Estante" name="nombre"
+                        id="name" [(ngModel)]="rack.description">
                     <div class="alert alert-danger" *ngIf="error?.description">
-                        {{ error.description }}
+                        {{ error.name }}
                     </div>
+
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-secondary my-2 btn-style"
-                        routerLink="/seccion"
-                        (click)="section.idSection? editar(): crear() ">
-                        {{ section.idSection? 'Editar': 'Crear' }}
-                        
+                        (click)="rack.idRack? editar(): crear()">
+                        {{ rack.idRack? 'Editar': 'Crear' }}
                     </button>
                     <button type="button" class="btn btn-secondary my-2 btn-style"
-                        routerLink="/seccion">volver</button>
+                        routerLink="/listar_productos">volver</button>
                 </div>
             </form>
         </div>

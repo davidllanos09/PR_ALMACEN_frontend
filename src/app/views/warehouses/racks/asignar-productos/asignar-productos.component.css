@@ -1,3 +1,46 @@
+.content-all {
+    padding: 30px;
+    margin-top: 50px;
+}
+.card-warehouse{
+    background: #F4FAFF;
+    padding: 0 !important;
+}
+
+.header-card{
+    font-weight: bolder;
+    font-size: 25px;
+    color: #0A457F;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.content > mat-card {
+    width: 200px;
+}
+
+.content-btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+.content-btn button{
+    font-size: 13px;
+    margin: 10px;
+}
+
+.btn-submit{
+    color: #FFFFFF;
+    background: #0A457F;
+    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+    border-radius: 10px;
+}
+
+.content-card{
+    margin: 5px 15px 10px 15px;
+}
+
 .cont-r{
     margin-top: 80px;
 }
@@ -47,7 +90,7 @@
 
 .header-rg{
     text-align: center;
-    color: #ffffff;
+    color: #0A457F;
 }
 
 .btn-c{
@@ -121,31 +164,4 @@
 
 .modal_wrapper.active .success_wrap{
 	transform: translate(-50%,-50%);
-}
-
-.centreado{
-	width: 600px;
-	border: 1px solid #E1E1E1;
-	border-radius: 4px;
-	padding: 15px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-@media (max-width: 400px){
-	.centreado{
-		width: 90%;
-	}
-}
-
-.btn-style{
-    width: 200px;
-    color: #FFFFFF;
-    background: #0a457fc6;
-    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
-    border-radius: 10px;
-    height: 36px;
-    margin: 25px;
-    align-items: center;
 }

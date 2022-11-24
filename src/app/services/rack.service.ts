@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Rack } from '../models/rack';
 import { CommonService } from './common.service';
 import { BASE_ENDPOINT } from '../config/app';
+import { Producto } from '../models/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,31 +12,31 @@ import { BASE_ENDPOINT } from '../config/app';
 export class RackService extends CommonService<Rack> {
 
   protected override baseEndpoint = BASE_ENDPOINT + '/rack';
-  
+
   constructor(http: HttpClient) {
     super(http);
   }
 
-  public findByDescription(term: string): Observable<Rack[]>{
+  public findByDescription(term: string): Observable<Rack[]> {
     return this.http.get<Rack[]>(`${this.baseEndpoint}/filtrar/${term}`);
   }
-  
-  public modify(rack:Rack): Observable<Rack> {
+
+  public modify(rack: Rack): Observable<Rack> {
     return this.http.put<Rack>(`${this.baseEndpoint}/${rack.idRack}`, rack,
       { headers: this.cabeceras });
   }
 
-  /*ASIGNA LAS SECCIONES A ALMACEN */
-  addRack(rack: Rack): Observable<Rack>{
-    return this.http.put<Rack>(`${this.baseEndpoint}/${rack.idRack}/assign-rack`,
-     
-     {headers: this.cabeceras});
+  /*ASIGNA PRODUCTOS A RACKS */
+  addProduct(rack: Rack, productos: Producto[]): Observable<Rack> {
+    return this.http.put<Rack>(`${this.baseEndpoint}/${rack.idRack}/asignar-productos`,
+      productos,
+      { headers: this.cabeceras });
   }
 
-  /*BORRA SECCIONES DEL ALMACEN */
-  deleteRack(rack: Rack): Observable<Rack> {
-    return this.http.put<Rack>(`${this.baseEndpoint}/${rack.idRack}/eliminar-rack`,
-    rack,
-    {headers: this.cabeceras});
+  /*BORRA PRODUCTO A RACKS*/
+  deleteProduct(rack: Rack, producto: Producto): Observable<Rack> {
+    return this.http.put<Rack>(`${this.baseEndpoint}/${rack.idRack}/eliminar-producto`,
+      producto,
+      { headers: this.cabeceras });
   }
 }

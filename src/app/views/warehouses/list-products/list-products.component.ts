@@ -7,6 +7,9 @@ import { ProductService } from 'src/app/services/producto.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Rack } from 'src/app/models/rack';
+import { RackService } from 'src/app/services/rack.service';
+
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
@@ -16,13 +19,17 @@ export class ListProductsComponent implements OnInit {
   productos: Producto[];
   producto: Producto = new Producto();
 
+  racks: Rack[];
+  rack: Rack = new Rack();
+
   error:any;
-  constructor(private _LoadScripts:LoadScriptsService, 
+
+  constructor( 
     private service: ProductService,
+    private services: RackService,
     private router: Router,
-    private route: ActivatedRoute) { 
-_LoadScripts.Load(["register_section"])
-}
+    private route: ActivatedRoute) { }
+
 public eliminar(w: Producto): void{
   Swal.fire({
     title: 'Cuidado:',
@@ -42,57 +49,29 @@ public eliminar(w: Producto): void{
     }
   });
 }
-  /*cards = [
-    {
-      title: 'Doritos',
-      units: '15',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card content'
-    },
-    {
-      title: 'Club Social',
-      units: '5',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card content'
-    },
-    {
-      title: 'Pipocas',
-      units: '12',
-      description: 'Some quick example text to build on the card title and make up the bulk of the card content'
-    },
-    {
-      title: 'Nachos Mex',
-      units: '25',
-      description: 'Description'
-    },
-  ];*/
-  
-  sections = [
-    {
-      title: 'Section 1',
-      type: 'Congelador',
-      quantity_shelves: '15',
-      description: 'Description'
-    },
-    {
-      title: 'Section 2',
-      type: 'Congelador',
-      quantity_shelves: '15',
-      description: 'Description'
-    },
-    {
-      title: 'Section 3',
-      type: 'Congelador',
-      quantity_shelves: '15',
-      description: 'Description'
-    },
-    {
-      title: 'Section 4',
-      type: 'Congelador',
-      quantity_shelves: '15',
-      description: 'Description'
-    },
-  ];
+
+public eliminarEstante(r: Rack): void{
+  Swal.fire({
+    title: 'Cuidado:',
+    text: `¿Seguro que desea eliminar a ${r.description} ?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#0A457F',
+    cancelButtonColor: '#86b9eb',
+    confirmButtonText: 'Si, eliminar!'
+  }).then((result) => {
+    if (result.value) {
+      this.services.delete(r.idRack).subscribe(() => {
+        Swal.fire('Eliminado:', `${r.description} eliminado con éxito`, 'success');
+        this.router.navigate(['/listar_productos']);
+      });
+    }
+  });
+}
+ 
   ngOnInit(): void {
     this.service.list().subscribe(productos => this.productos = productos);
+    this.services.list().subscribe(racks => this.racks = racks);
   }
 
 }
